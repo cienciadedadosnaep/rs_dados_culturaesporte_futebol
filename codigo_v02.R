@@ -92,7 +92,7 @@ exportJson0 <- toJSON(objeto_0)
 
 
 titulo<-T_ST_P_No_Culturaesporte$TITULO[3]
-subtexto<-"Transfermarkt"
+subtexto<-"Fonte: Transfermarkt"
 link <- T_ST_P_No_Culturaesporte$LINK[3]
 
 data_axis <- paste('["',gsub(' ','","',
@@ -113,7 +113,7 @@ texto<-paste('{"title":{"text":"',titulo,
              '"dataView":{"readOnly":false},',
              '"restore":{},"saveAsImage":{}}},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
-             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}"}},',
+             '"yAxis":{"type":"value","axisLabel":{"formatter":" {value}"}},',
              '"series":[{"data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[5],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},',
