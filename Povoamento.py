@@ -2,6 +2,7 @@ import time
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 
 df = pd.read_csv('E:/Área de trabalho/Códigos/R/rs_dados_culturaesporte_futebol/data/POVOAMENTO.csv', sep = ';')
@@ -56,21 +57,21 @@ for i in range(0,len(df)):
 
     code = list(pd.read_csv('E:/Área de trabalho/Códigos/R/rs_dados_culturaesporte_futebol/data/'+codigol1[i],sep=';', encoding= 'latin-1'))
 
-    subtema = driver.find_element_by_id('subtema-field-1')
+    subtema = driver.find_element(By.ID,'subtema-field-1')
     subtema.send_keys(subtemal1[i])
     time.sleep(5)
     subtema.send_keys(Keys.ENTER)
 
-    pergunta = driver.find_element_by_id('title-field-2')
+    pergunta = driver.find_element(By.ID, 'title-field-2')
     pergunta.send_keys(perguntal1[i])
 
-    codigo = driver.find_element_by_id('code-field-3')
+    codigo = driver.find_element(By.ID, 'code-field-3')
     codigo.send_keys(code)
     time.sleep(3)
-    driver.find_element_by_xpath('//span[text()="Publicar"]').click()
+    driver.find_element(By.XPATH, '//span[text()="Publicar"]').click()
     time.sleep(5)
-    driver.find_element_by_xpath('//span[text()="Publicar e criar novo(a)"]').click()
-    time.sleep(10)
+    driver.find_element(By.XPATH, '//span[text()="Publicar e criar novo(a)"]').click()
+    time.sleep(15)
     driver.refresh()
     time.sleep(15)
 
