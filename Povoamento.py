@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 
-df = pd.read_csv('C:/Users/bruna/OneDrive/Documentos/Faculdade (Semestre Suplementar)/R_cdnaep/sitereconhecendosalvador/rs_dados_culturaesporte_futebol/data/POVOAMENTO.csv', sep = ';')
+df = pd.read_csv('C:/Users/luiza/OneDrive/Documentos/rs_dados_culturaesporte_futebol/data/POVOAMENTO.csv', sep = ';')
 
 pd.set_option('display.max_colwidth', None)
 df.info()
@@ -55,7 +55,7 @@ time.sleep(50)
 
 for i in range(0,len(df)):
 
-    code = list(pd.read_csv('C:/Users/bruna/OneDrive/Documentos/Faculdade (Semestre Suplementar)/R_cdnaep/sitereconhecendosalvador/rs_dados_culturaesporte_futebol/data/'+codigol1[i],sep=';', encoding= 'latin-1'))
+    code = list(pd.read_csv('C:/Users/luiza/OneDrive/Documentos/rs_dados_culturaesporte_futebol/data/'+codigol1[i],sep=';', encoding= 'latin-1'))
 
     subtema = driver.find_element(By.ID,'subtema-field-1')
     subtema.send_keys(subtemal1[i])
@@ -74,4 +74,6 @@ for i in range(0,len(df)):
     time.sleep(15)
     driver.refresh()
     time.sleep(15)
+
+
 
