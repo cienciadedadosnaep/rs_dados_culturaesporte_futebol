@@ -66,6 +66,8 @@ names(tab3) <- c("ano","Público")
 
 dados2 <- tab3 %>% select(ano,`Público`) %>% arrange(ano)
 
+dados2 %<>% mutate(`Público`=`Público`/1000) #Reorganizando a escala dos dados
+
 ##  Perguntas e titulos 
 T_ST_P_No_Culturaesporte <- read_csv("data/TEMA_SUBTEMA_P_No - CULTURAESPORTE.csv")
 dados2 %<>% gather(key = classe,
@@ -81,8 +83,7 @@ SAIDA_POVOAMENTO <- T_ST_P_No_Culturaesporte %>%
   select(TEMA,SUBTEMA,PERGUNTA,NOME_ARQUIVO_JS)
 SAIDA_POVOAMENTO <- as.data.frame(SAIDA_POVOAMENTO)
 
-classes <- NULL
-classes <- levels(as.factor(dados2$classe))
+
 
 # Cores secundarias paleta pantone -
 corsec_recossa_azul <- c('#175676','#62acd1','#8bc6d2','#20cfef',
@@ -122,7 +123,7 @@ texto<-paste('{"title":{"text":"',titulo,
              '"dataView":{"readOnly":false},',
              '"restore":{},"saveAsImage":{}}},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
-             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}"}},',
+             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}mil"}},',
              '"series":[{"data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[5],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},',
