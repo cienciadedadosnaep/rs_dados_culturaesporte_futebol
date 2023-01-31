@@ -123,10 +123,10 @@ texto<-paste('{"title":{"text":"',titulo,
 texto<-noquote(texto)
 
 
-write(exportJson0,file = paste('data/',gsub('.csv','',T_ST_P_No_Culturaesporte$NOME_ARQUIVO_JS[3]),
-                               '.json',sep =''))
-write(texto,file = paste('data/',T_ST_P_No_Culturaesporte$NOME_ARQUIVO_JS[3],
-                         sep =''))
+write.csv2(exportJson0,file = paste('data/',gsub('.csv','',T_ST_P_No_Culturaesporte$NOME_ARQUIVO_JS[3]),
+                               '.json',sep =''),fileEncoding = 'latin1')
+write.csv2(texto,file = paste('data/',T_ST_P_No_Culturaesporte$NOME_ARQUIVO_JS[3],
+                         sep =''),fileEncoding = 'latin1')
 
 #}
 
