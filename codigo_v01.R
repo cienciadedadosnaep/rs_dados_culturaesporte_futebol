@@ -83,7 +83,8 @@ SAIDA_POVOAMENTO <- T_ST_P_No_Culturaesporte %>%
   select(TEMA,SUBTEMA,PERGUNTA,NOME_ARQUIVO_JS)
 SAIDA_POVOAMENTO <- as.data.frame(SAIDA_POVOAMENTO)
 
-
+classes <- NULL
+classes <- levels(as.factor(dados2$classe))
 
 # Cores secundarias paleta pantone -
 corsec_recossa_azul <- c('#175676','#62acd1','#8bc6d2','#20cfef',
