@@ -66,7 +66,10 @@ names(tab3) <- c("ano","Público")
 
 dados2 <- tab3 %>% select(ano,`Público`) %>% arrange(ano)
 
-dados2 %<>% mutate(`Público`=`Público`/1000) #Reorganizando a escala dos dados
+#Reorganizando a escala dos dados
+
+dados2 %<>% mutate(`Público`=round(`Público`/1000,0))
+
 
 ##  Perguntas e titulos 
 T_ST_P_No_Culturaesporte <- read_csv("data/TEMA_SUBTEMA_P_No - CULTURAESPORTE.csv")
@@ -118,13 +121,13 @@ data_serie <- paste('[',gsub(' ',',',
 texto<-paste('{"title":{"text":"',titulo,
              '","subtext":"',subtexto,
              '","sublink":"',link,'"},',
-             '"tooltip":{"trigger":"axis"},',
+             '"tooltip":{"trigger":"item","responsive":"true","position":"top","formatter":"{c0} mil"},',
              '"toolbox":{"left":"center","orient":"horizontal","itemSize":20,"top":20,"show":true,',
              '"feature":{"dataZoom":{"yAxisIndex":"none"},',
              '"dataView":{"readOnly":false},',
              '"restore":{},"saveAsImage":{}}},"xAxis":{"type":"category",',
              '"data":',data_axis,'},',
-             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value}mil"}},',
+             '"yAxis":{"type":"value","axisLabel":{"formatter":"{value} mil"}},',
              '"series":[{"data":',data_serie,',',
              '"type":"bar","color":"',corsec_recossa_azul[5],'","showBackground":true,',
              '"backgroundStyle":{"color":"rgba(180, 180, 180, 0.2)"},',
